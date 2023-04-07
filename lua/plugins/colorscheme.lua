@@ -1,7 +1,6 @@
 return {
   { "ellisonleao/gruvbox.nvim" },
   { "projekt0n/github-nvim-theme" },
-
   {
     "AlexvZyl/nordic.nvim",
     lazy = false,
@@ -10,7 +9,6 @@ return {
       require("nordic").load()
     end,
   },
-
   {
     "folke/tokyonight.nvim",
     opts = {
@@ -21,7 +19,6 @@ return {
       },
     },
   },
-
   {
     "LazyVim/LazyVim",
     opts = {
