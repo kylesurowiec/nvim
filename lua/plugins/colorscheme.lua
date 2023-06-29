@@ -1,13 +1,12 @@
 return {
   { "ellisonleao/gruvbox.nvim" },
-  { "projekt0n/github-nvim-theme" },
   {
-    "AlexvZyl/nordic.nvim",
-    lazy = false,
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
-    config = function()
-      require("nordic").load()
-    end,
+    opts = {
+      flavour = "frappe",
+    },
   },
   {
     "folke/tokyonight.nvim",
@@ -22,7 +21,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nordic",
+      colorscheme = "catppuccin",
     },
   },
 }
