@@ -6,7 +6,6 @@ return {
         "eslint-lsp",
         "prettierd",
         "rust-analyzer",
-        "rustfmt",
         "tailwindcss-language-server",
         "typescript-language-server",
       },
@@ -16,6 +15,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        rust_analyzer = {},
         tailwindcss = {},
         omnisharp = {},
       },
