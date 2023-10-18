@@ -29,6 +29,12 @@ return {
       },
     },
     {
+      "L3MON4D3/LuaSnip",
+      opts = {
+        history = false,
+      },
+    },
+    {
       "hrsh7th/nvim-cmp",
       dependencies = {
         { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
