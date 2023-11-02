@@ -1,5 +1,5 @@
 return {
-  { "rcarriga/nvim-notify", enabled = false },
+  { "rcarriga/nvim-notify", enabled = true },
   { "rafamadriz/friendly-snippets", enabled = false },
   { "folke/noice.nvim", enabled = false },
 }
