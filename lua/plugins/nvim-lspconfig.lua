@@ -1,5 +1,4 @@
 local pid = vim.fn.getpid()
-local omnisharp_bin = "/Users/kylesurowiec/.local/share/nvim/mason/packages/omnisharp/omnisharp"
 
 return {
   {
@@ -7,13 +6,43 @@ return {
     dependencies = {
       { "Hoffs/omnisharp-extended-lsp.nvim" },
     },
-    init = function()
-      return {
-        handlers = {
-          ["textDocument/definition"] = require("omnisharp_extended").handler,
+    opts = {
+      servers = {
+        omnisharp = {
+          cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(pid) },
+          capabilities = { textDocument = { formatting = true } },
+          handlers = {
+            ["textDocument/definition"] = function(...)
+              return require("omnisharp_extended").handler(...)
+            end,
+          },
+          on_attach = function(client, bufnr)
+            vim.keymap.set(
+              "n",
+              "gd",
+              "<cmd>lua require('omnisharp_extended').telescope_lsp_definitions()<cr>",
+              { desc = "Goto definition (omnisharp)", buffer = bufnr }
+            )
+
+            local function toSnakeCase(str)
+              return string.gsub(str, "%s*[- ]%s*", "_")
+            end
+
+            local tokenModifiers =
+              client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
+
+            for i, v in ipairs(tokenModifiers) do
+              tokenModifiers[i] = toSnakeCase(v)
+            end
+
+            local tokenTypes = client.server_capabilities.semanticTokensProvider.legend.tokenTypes
+
+            for i, v in ipairs(tokenTypes) do
+              tokenTypes[i] = toSnakeCase(v)
+            end
+          end,
         },
-        cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
-      }
-    end,
+      },
+    },
   },
 }
