@@ -8,7 +8,6 @@ return {
         "prettierd",
         "rust-analyzer",
         "tailwindcss-language-server",
-        "typescript-language-server",
       },
     },
   },
