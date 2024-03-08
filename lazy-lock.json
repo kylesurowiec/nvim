@@ -59,3 +59,4 @@
   "vim-startuptime": { "branch": "master", "commit": "308b0088a864c4711a96e45b6734cf9294074f65" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
   "wildfire.vim": { "branch": "master", "commit": "dfcf48aad2e80c63272df67a1b81e37cbc443412" }
+}
