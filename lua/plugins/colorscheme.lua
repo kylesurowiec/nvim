@@ -2,7 +2,6 @@ return {
   { "ellisonleao/gruvbox.nvim" },
   {
     "haishanh/night-owl.vim",
-    lazy = false,
     priority = 1000,
   },
   {
@@ -27,9 +26,15 @@ return {
     "edeneast/nightfox.nvim",
   },
   {
+    "projekt0n/github-nvim-theme",
+  },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nordfox",
+      colorscheme = "github_dark_dimmed",
     },
   },
 }

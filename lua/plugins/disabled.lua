@@ -1,4 +1,0 @@
-return {
-  { "rcarriga/nvim-notify",         enabled = true },
-  { "rafamadriz/friendly-snippets", enabled = false },
-}
