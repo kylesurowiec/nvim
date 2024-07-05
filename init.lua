@@ -1,5 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+<<<<<<< HEAD
 
 vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. (false and "; " or ":") .. vim.env.PATH
 
@@ -12,3 +13,5 @@ vim.cmd(":hi Cursor2 guifg=teal guibg=teal")
 vim.cmd(
   ":set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:block-Cursor2/lCursor2,r-cr:hor20,o:hor50"
 )
+=======
+>>>>>>> e82f656 (fix config)

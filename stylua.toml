@@ -1,3 +1,7 @@
 indent_type = "Spaces"
 indent_width = 2
+<<<<<<< HEAD
 column_width = 100
+=======
+column_width = 120
+>>>>>>> e82f656 (fix config)

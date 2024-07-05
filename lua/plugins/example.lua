@@ -2,7 +2,11 @@
 -- stylua: ignore
 if true then return {} end
 
+<<<<<<< HEAD
 -- every spec file under config.plugins will be loaded automatically by lazy.nvim
+=======
+-- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
+>>>>>>> e82f656 (fix config)
 --
 -- In your plugin files, you can:
 -- * add extra plugins
@@ -30,6 +34,7 @@ return {
   -- disable trouble
   { "folke/trouble.nvim", enabled = false },
 
+<<<<<<< HEAD
   -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
@@ -38,14 +43,20 @@ return {
     config = true,
   },
 
+=======
+>>>>>>> e82f656 (fix config)
   -- override nvim-cmp and add cmp-emoji
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
+<<<<<<< HEAD
       local cmp = require("cmp")
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
+=======
+      table.insert(opts.sources, { name = "emoji" })
+>>>>>>> e82f656 (fix config)
     end,
   },
 
@@ -72,6 +83,7 @@ return {
     },
   },
 
+<<<<<<< HEAD
   -- add telescope-fzf-native
   {
     "telescope.nvim",
@@ -84,6 +96,8 @@ return {
     },
   },
 
+=======
+>>>>>>> e82f656 (fix config)
   -- add pyright to lspconfig
   {
     "neovim/nvim-lspconfig",
@@ -106,12 +120,16 @@ return {
         require("lazyvim.util").lsp.on_attach(function(_, buffer)
           -- stylua: ignore
           vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
+<<<<<<< HEAD
           vim.keymap.set(
             "n",
             "<leader>cR",
             "TypescriptRenameFile",
             { desc = "Rename File", buffer = buffer }
           )
+=======
+          vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
+>>>>>>> e82f656 (fix config)
         end)
       end,
     },
@@ -147,7 +165,10 @@ return {
     opts = {
       ensure_installed = {
         "bash",
+<<<<<<< HEAD
         "help",
+=======
+>>>>>>> e82f656 (fix config)
         "html",
         "javascript",
         "json",
@@ -202,7 +223,11 @@ return {
   -- use mini.starter instead of alpha
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
 
+<<<<<<< HEAD
   -- add jsonls and schemastore ans setup treesitter for json, json5 and jsonc
+=======
+  -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
+>>>>>>> e82f656 (fix config)
   { import = "lazyvim.plugins.extras.lang.json" },
 
   -- add any tools you want to have installed below
@@ -217,6 +242,7 @@ return {
       },
     },
   },
+<<<<<<< HEAD
 
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
@@ -271,4 +297,6 @@ return {
       })
     end,
   },
+=======
+>>>>>>> e82f656 (fix config)
 }
