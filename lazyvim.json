@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "extras": [
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.markdown",
@@ -7,16 +6,5 @@
     "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.linting.eslint"
   ],
-=======
-  "extras": [],
->>>>>>> e82f656 (fix config)
-  "news": {
-    "NEWS.md": "6077"
-  },
-  "version": 6
-<<<<<<< HEAD
+  "extras": []
 }
-=======
-}
-
->>>>>>> e82f656 (fix config)
