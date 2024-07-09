@@ -7,6 +7,7 @@ return {
       { "Hoffs/omnisharp-extended-lsp.nvim" },
     },
     opts = {
+      inlay_hints = { enabled = false },
       servers = {
         omnisharp = {
           cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(pid) },
@@ -28,8 +29,7 @@ return {
               return string.gsub(str, "%s*[- ]%s*", "_")
             end
 
-            local tokenModifiers =
-              client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
+            local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
 
             for i, v in ipairs(tokenModifiers) do
               tokenModifiers[i] = toSnakeCase(v)
