@@ -1,6 +1,8 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    commit = "b356f2c",
+    pin = true,
     dependencies = {
       { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     },
