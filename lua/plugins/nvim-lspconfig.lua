@@ -9,6 +9,33 @@ return {
     opts = function(_, opts)
       opts.servers = opts.servers or {}
 
+      opts.servers.rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            inlayHnts = {
+              enable = false,
+            },
+          },
+        },
+      }
+
+      opts.servers.vtsls = {
+        settings = {
+          typescript = {
+            preferences = {
+              disableImportGroupMerging = true,
+            },
+          },
+        },
+      }
+
+      opts.servers.vtsls.settings.javascript = vim.tbl_deep_extend(
+        "force",
+        {},
+        opts.servers.vtsls.settings.typescript,
+        opts.servers.vtsls.settings.javascript or {}
+      )
+
       opts.servers.omnisharp = {
         cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(pid) },
         capabilities = { textDocument = { formatting = true } },
@@ -42,23 +69,6 @@ return {
           end
         end,
       }
-
-      opts.servers.vtsls = {
-        settings = {
-          typescript = {
-            preferences = {
-              disableImportGroupMerging = true,
-            },
-          },
-        },
-      }
-
-      opts.servers.vtsls.settings.javascript = vim.tbl_deep_extend(
-        "force",
-        {},
-        opts.servers.vtsls.settings.typescript,
-        opts.servers.vtsls.settings.javascript or {}
-      )
     end,
   },
 }
