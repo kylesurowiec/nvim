@@ -7,6 +7,9 @@ return {
       { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     },
     opts = function(_, opts)
+      opts.completion = { autocomplete = false }
+      opts.experimental = { ghost_text = false }
+
       local format_kinds = opts.formatting.format
       opts.formatting.format = function(entry, item)
         format_kinds(entry, item)
