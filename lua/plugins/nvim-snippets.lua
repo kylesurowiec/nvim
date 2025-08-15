@@ -1,6 +1,6 @@
 return {
   {
     "garymjr/nvim-snippets",
-    enabled = false,
+    enabled = true, -- Enable snippets for completion
   },
 }
