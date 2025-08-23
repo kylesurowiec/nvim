@@ -1,18 +1,74 @@
 return {
+  -- Main copilot plugin (LazyVim recommended)
   {
-    "github/copilot.vim",
-    lazy = false,
-    config = function()
-      vim.g.copilot_no_tab_map = true
-      vim.g.copilot_assume_mapped = true
-      vim.g.copilot_tab_fallback = ""
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = "BufReadPost",
+    opts = {
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        hide_during_completion = false,
+        keymap = {
+          accept = false, -- Disabled here, handled by our custom keymaps
+          accept_word = false,
+          accept_line = false,
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
+        },
+      },
+      panel = { enabled = false }, -- Disable panel to avoid conflicts
+      filetypes = {
+        markdown = true,
+        help = true,
+        yaml = false,
+        gitcommit = false,
+        gitrebase = false,
+        hgcommit = false,
+        svn = false,
+        cvs = false,
+        ["."] = false,
+      },
+      -- Override server options to prevent some LSP issues
+      server_opts_overrides = {
+        trace = "off", -- Reduce logging verbosity
+        settings = {
+          advanced = {
+            listCount = 10,
+            inlineSuggestCount = 3,
+          },
+        },
+      },
+      -- Prevent copilot from interfering with LSP restart
+      copilot_node_command = "node",
+    },
+  },
+
+  -- Add ai_accept action for LazyVim integration
+  {
+    "zbirenbaum/copilot.lua",
+    opts = function()
+      -- LazyVim integration
+      if LazyVim and LazyVim.cmp and LazyVim.cmp.actions then
+        LazyVim.cmp.actions.ai_accept = function()
+          if require("copilot.suggestion").is_visible() then
+            LazyVim.create_undo()
+            require("copilot.suggestion").accept()
+            return true
+          end
+        end
+      end
     end,
   },
+
+  -- CopilotChat
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
     dependencies = {
-      { "github/copilot.vim" },
+      { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" },
     },
     opts = {
