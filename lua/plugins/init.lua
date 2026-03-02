@@ -407,14 +407,6 @@ return {
     end,
   },
 
-  -- Claude Code review flow
-  {
-    dir = "~/workspace/nvim-claude-code-review-flow",
-    config = function()
-      require("claude-review").setup()
-    end,
-  },
-
   -- Noice (better UI for messages, cmdline, LSP hover)
   {
     "folke/noice.nvim",
